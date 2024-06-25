@@ -230,15 +230,19 @@ def main():
 
         for i,bomb in enumerate(bombs):
             for j, beam in enumerate(m_beam):
+                if beam is not None:
+                    
+                    if not check_bound(beam.rct) == (True,True):
+                        m_beam[j] = None
                 if bomb is not None and beam is not None:
                     if bomb.rct.colliderect(beam.rct):
                         bombs[i] = None
                         m_beam[j] = None
                         bird.change_img(6, screen)
-                        score += 1
+                        score += 1          
         bombs = [bomb for bomb in bombs if bomb is not None] # bombsの要素数を更新
         m_beam = [beam for beam in m_beam if beam is not None]
-        m_beam = [beam for beam in m_beam if check_bound(beam.rct) == (True, True)]
+        # m_beam = [beam for beam in m_beam if check_bound(beam.rct) == (True, True)]
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
         for beam in m_beam:
