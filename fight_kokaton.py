@@ -156,6 +156,7 @@ class Score:
         self.img = self.fonto.render(f"score：{self.score}", 0, self.color)
         self.rct = self.img.get_rect()
         self.rct.center = 100, WIDTH//2+50
+        
     def update(self, screen: pg.Surface, score: int):
         """
         現在のスコアを表示させる
