@@ -164,6 +164,33 @@ class Score:
         self.score = score
         self.img = self.fonto.render(f"Score: {self.score}", 0, self.color)
         screen.blit(self.img, self.rct)
+
+
+class explosion:
+    """
+    爆発エフェクトを表示するクラス
+    """
+    def __init__(self):
+        """
+        引数に基づき爆弾の座標と爆発時間を表示
+        引数 ：爆弾の爆発座標
+        """
+        # self.fonto = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)
+        # self.color = 0, 0, 255
+        # self.time = 1
+        # self.img = self.fonto.render(f"score：{self.score}", 0, self.color)
+        # self.rct = self.img.get_rect()
+        self.rct.center = 100, WIDTH//2+50
+    def update(self, screen: pg.Surface, life: int):
+        """
+        爆発時間を持つ
+        引数1 screen：画面Surface
+        引数2 life：爆発経過時間
+        """
+        # self.score = score
+        # self.img = self.fonto.render(f"Score: {self.score}", 0, self.color)
+        # screen.blit(self.img, self.rct)
+        
         
 
 def main():
